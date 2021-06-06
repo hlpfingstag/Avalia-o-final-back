@@ -28,7 +28,7 @@ app.post("/scraps", (request: Request, response: Response) => {
 
   scraps.push(scrap);
 
-  return response.json({ scrap });
+  return response.json(scrap);
 });
 
 //Read
