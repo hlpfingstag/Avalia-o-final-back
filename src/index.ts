@@ -65,6 +65,7 @@ app.delete("/scraps/:id", (request: Request, response: Response) => {
 });
 
 //Porta 3000
-app.listen(3000, () => {
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
   console.log("servidor rodando...");
 });
