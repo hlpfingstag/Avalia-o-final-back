@@ -52,7 +52,7 @@ app.put("/scraps/:id", (request: Request, response: Response) => {
 
   scraps.push(scrap);
 
-  return response.json({ scrap });
+  return response.json(scrap);
 });
 
 //Delete
