@@ -46,13 +46,14 @@ app.get("/scraps", (request: Request, response: Response) => {
 
 //Update
 app.put("/scraps/:id", (request: Request, response: Response) => {
+  const { id } = request.params;
   const { description, detailing }: any = request.body;
 
-  const scrap = new Scrap(description, detailing);
+  const updatedScrap = { id, description, detailing };
 
-  scraps.push(scrap);
+  scraps = scraps.map((scrap) => (scrap.id == id ? updatedScrap : scrap));
 
-  return response.json(scrap);
+  return response.json(updatedScrap);
 });
 
 //Delete
