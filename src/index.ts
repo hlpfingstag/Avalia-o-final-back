@@ -18,7 +18,7 @@ class Scrap {
   }
 }
 
-const scraps: Scrap[] = [];
+let scraps: Scrap[] = [];
 
 //Create
 app.post("/scraps", (request: Request, response: Response) => {
@@ -59,9 +59,7 @@ app.put("/scraps/:id", (request: Request, response: Response) => {
 app.delete("/scraps/:id", (request: Request, response: Response) => {
   const { id } = request.params;
 
-  const scrapIndex = scraps.findIndex((p) => p.id === id);
-
-  scraps.slice(scrapIndex, 1);
+  scraps = scraps.filter((scrap) => scrap.id !== id);
 
   return response.status(204).json();
 });
